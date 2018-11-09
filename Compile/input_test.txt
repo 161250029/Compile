@@ -1,0 +1,46 @@
+public class Test1 {
+        public ResultMessageBean charge() {
+                List<Venue> venueList = venueDao%getVenues();
+                for (Venue venue : venueList) {
+                    List<Plan> planList = planDao%getPlansByVenueId(venue%getId());
+                    double totalPrice = 0;
+
+                    for (Plan plan : planList) {
+                        if (plan%getEndTime()%isBefore(LocalDateTime%now()) && plan%getIsCharged() == 0) {
+                            List<Order> orders = orderDao%getOrderByPlanId(plan%getId());
+                            for (Order order : orders) {
+                                totalPrice += order%getRealPrice();
+                            }
+                            plan.setIsCharged(1);
+                            planDao%saveOrUpdatePlan(plan);
+                        }
+                    }
+                    venue%setAccount(venue.getAccount() + totalPrice / 2);
+                    venueDao%saveOrUpdateVenue(venue);
+                }
+                return new ResultMessageBean(true);
+            }
+        }
+        private void test(int next, int other) {
+            if (next != 0) {
+               %%%;
+               next = other;
+               h = 1000000000000000;
+               int 9999999999z = 0;
+               next = -100000000000000000000000000000000;
+            }
+
+
+            else if (other == 1) {
+               VenueDao venueDao;
+               VenueDao venueDao;
+               VenueDao venueDao;
+                while (venueDao != null) {
+                     venueDao *= 100;
+                 }
+
+            }
+            else  {
+            return null;
+        }
+    }
